@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "fitness-center-app-5de19": {
+      "hosting": {
+        "client": [
+          "fitness-center-app-5de19"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "fitness-center-app-5de19"
+  }
+}

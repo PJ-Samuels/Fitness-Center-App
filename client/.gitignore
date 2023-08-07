@@ -11,6 +11,11 @@
 npm-debug.log
 yarn-error.log
 
+#Firebase
+.firebaseserc
+./enivorments/environment.ts
+./enivorments/environment.development.ts
+
 # IDEs and editors
 .idea/
 .project
@@ -40,3 +45,8 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+# Firebase
+.firebase
+*-debug.log
+.runtimeconfig.json
