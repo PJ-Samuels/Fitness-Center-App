@@ -8,8 +8,7 @@ import { AppComponent } from './app.component';
 import { environment } from '../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
 
-// import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
-// import { provideAnalytics,getAnalytics,ScreenTrackingService,UserTrackingService } from '@angular/fire/analytics';
+
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFireModule } from '@angular/fire/compat';
 import { HomeNavComponent } from './components/home-nav/home-nav.component';
@@ -40,8 +39,6 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    // provideFirebaseApp(() => initializeApp(environment.firebase)),
-    // provideAnalytics(() => getAnalytics()),
     AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebase),
     // provideDatabase(() => getDatabase()),

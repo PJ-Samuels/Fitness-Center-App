@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup , Validators} from '@angular/forms';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import firebase from 'firebase/compat/app';
 import { Router } from '@angular/router';
-
+import { BackendService } from '../../services/backend.service';
 
 @Component({
   selector: 'app-login',
@@ -14,18 +14,21 @@ export class LoginComponent implements OnInit{
   loginForm!: FormGroup;
   constructor(public formBuilder: FormBuilder,
     private afAuth: AngularFireAuth,
-    private router: Router
+    private router: Router,
+    private backendService: BackendService,
     ) {}
   async loginWithGoogle() {
     const provider = new firebase.auth.GoogleAuthProvider();
-    //await this.afAuth.signInWithPopup(provider);
-    try {
-      await this.afAuth.signInWithPopup(provider).then((result) => {
-        this.router.navigate(['dashboard']);
-        console.log("User logged in", result.user)
-      });
-    } catch (error) {
-      console.error('Google sign-in error:', error);
+    const result = await this.afAuth.signInWithPopup(provider)
+    let user = result.user?.displayName;
+    if(user){
+      this.router.navigate(['dashboard']);
+      console.log("User logged in", result.user?.displayName)
+      this.backendService.callExpress2(user).subscribe(
+        (response) => {
+          console.log('Response from Express:', response);
+        }
+      );
     }
   }
 
@@ -44,13 +47,13 @@ export class LoginComponent implements OnInit{
   // }
   
   ngOnInit(): void {
-    this.afAuth.authState.subscribe(user => {
-      if (user) {
-        console.log("user logged in")// User is logged in
-      } else {
-        // User is not logged in
-      }
-    });
+    // this.afAuth.authState.subscribe(user => {
+    //   if (user) {
+    //     console.log("user logged in")
+    //   } else {
+    //     console.log("user logged out")
+    //   }
+    // });
     this.loginForm = this.formBuilder.group({
       password: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],

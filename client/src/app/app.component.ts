@@ -1,7 +1,5 @@
 import { Component ,OnInit } from '@angular/core';
 import { BackendService } from './services/backend.service';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -12,8 +10,6 @@ export class AppComponent implements OnInit {
   response: any;
   title = 'Fitness Center App';
   constructor(private backendService: BackendService,
-    private afAuth: AngularFireAuth,
-    private router: Router
      ) {}
 
   ngOnInit(): void {

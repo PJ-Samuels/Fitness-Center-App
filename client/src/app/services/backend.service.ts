@@ -8,9 +8,15 @@ import { Observable } from 'rxjs';
 export class BackendService {
   private baseUrl = 'http://localhost:3000'; // Update with your Express server URL
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient,
+    ) {}
 
   callExpress(): Observable<any> {
     return this.http.get(`${this.baseUrl}/`);
+  }
+  callExpress2(data: any): Observable<any> {
+    console.log("data",data);
+    const requestData = { user: data }
+    return this.http.post(`${this.baseUrl}/login`, requestData);
   }
 }
