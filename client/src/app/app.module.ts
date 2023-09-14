@@ -16,6 +16,9 @@ import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { UserNavComponent } from './components/user-nav/user-nav.component';
+import { MyCenterComponent } from './components/my-center/my-center.component';
+import { SearchComponent } from './components/search/search.component';
 
 
 // import { provideDatabase,getDatabase } from '@angular/fire/database';
@@ -33,6 +36,9 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     LoginComponent,
     HomeComponent,
     DashboardComponent,
+    UserNavComponent,
+    MyCenterComponent,
+    SearchComponent,
   ],
   imports: [
     BrowserModule,

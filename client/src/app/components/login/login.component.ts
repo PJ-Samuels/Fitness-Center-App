@@ -40,11 +40,11 @@ export class LoginComponent implements OnInit{
       console.error('Logout error:', error);
     }
   }
-  // onSubmit() {
-  //   if (this.loginForm.valid) {
-  //     console.log(this.loginForm.value);
-  //   }
-  // }
+  onSubmit() {
+    if (this.loginForm.valid) {
+      console.log(this.loginForm.value);
+    }
+  }
   
   ngOnInit(): void {
     // this.afAuth.authState.subscribe(user => {
