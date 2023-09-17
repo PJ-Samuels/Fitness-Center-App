@@ -21,7 +21,9 @@ app.get('/', (_req, _res) => {
 });
 
 app.post('/center-info', (_req, _res) => {
-    console.log("center-info reached");
+    // console.log("center-info reached");
+    // db.collection('centers').insert(req.body.name);
+    _res.json("center-info reached");
 });
 
 app.post('/login', (_req, _res) => {

@@ -21,7 +21,7 @@ export class MyCenterComponent {
 
     onSubmit() {
       // Handle form submission here, e.g., send the user data to an API
-      this.backend.callExpressTest().subscribe((data: any) => {
+      this.backend.callExpressTest(this.info).subscribe((data: any) => {
         console.log(data);
       });
       console.log(this.info);
