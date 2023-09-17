@@ -14,6 +14,9 @@ export class BackendService {
   callExpress(): Observable<any> {
     return this.http.get(`${this.baseUrl}/`);
   }
+  callExpressTest(): Observable<any> {
+    return this.http.get(`${this.baseUrl}/`);
+  }
   callExpress2(data: any): Observable<any> {
     console.log("data",data);
     const requestData = { user: data }

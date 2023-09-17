@@ -17,4 +17,8 @@ export class UserNavComponent {
     console.log("clicked");
     this.router.navigate(['search']);
   }
+  handleHomeClick(){
+    console.log("clicked");
+    this.router.navigate(['home']);
+  }
 }

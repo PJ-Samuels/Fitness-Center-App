@@ -20,6 +20,10 @@ app.get('/', (_req, _res) => {
     _res.json("TypeScript With Express");
 });
 
+app.post('/center-info', (_req, _res) => {
+    console.log("center-info reached");
+});
+
 app.post('/login', (_req, _res) => {
     let user = _req.body.user;
     const users = db.collection('users');

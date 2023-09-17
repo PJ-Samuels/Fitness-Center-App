@@ -1,9 +1,73 @@
 <app-user-nav></app-user-nav>
 <p>my-center works!</p>
-<a>Enter Facility Name</a><br/>
-<a>Enter Address</a><br/>
-<a>Enter phone number</a><br/>
-<a>Summary</a><br/>
-<a>Rates</a><br/>
-<a>Hours</a><br/>
-<a>Upload new image</a><br/>
+<form (ngSubmit)="onSubmit()" #infoForm="ngForm">
+    <div class="form-group">
+      <label for="name">Facility Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="name"
+        name="name"
+        [(ngModel)]="info.name"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="address">Address</label>
+      <input
+        type="text"
+        class="form-control"
+        id="address"
+        name="address="
+        [(ngModel)]="info.address"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="phone">phone number</label>
+      <input
+        type="phone"
+        class="form-control"
+        id="phone"
+        name="phone"
+        [(ngModel)]="info.phone"
+        required
+      />
+    </div>
+    <div class="form-group">
+        <label for="summary">Summary</label>
+        <input
+          type="text"
+          class="form-control"
+          id="summary"
+          name="summary"
+        [(ngModel)]="info.summary"
+          required
+        />
+      </div>
+      <!-- <div class="form-group">
+        <label for="lastName">Rates</label>
+        <input
+          type="text"
+          class="form-control"
+          id="lastName"
+          name="lastName"
+          [(ngModel)]="info.lastName"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="lastName">hours</label>
+        <input
+          type="text"
+          class="form-control"
+          id="lastName"
+          name="lastName"
+          [(ngModel)]="info.lastName"
+          required
+        />
+      </div> -->
+    <button type="submit" class="btn btn-primary" [disabled]="!infoForm.valid">
+      Update
+    </button>
+  </form>
