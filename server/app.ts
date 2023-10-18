@@ -1,7 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
-import {MongoClient, Db} from 'mongodb';
+import {MongoClient, Db, ObjectId} from 'mongodb';
 import { sign } from 'crypto';
 const app: express.Application = express();
 const port: number = 3000;
@@ -22,7 +22,13 @@ app.get('/', (_req, _res) => {
 
 app.post('/center-info', (_req, _res) => {
     // console.log("center-info reached");
-    // db.collection('centers').insert(req.body.name);
+    console.log(_req.body.location.name)
+   const fitness_data = {
+        _id: new ObjectId(),
+        name: _req.body.location.name,
+    }
+
+    db.collection('locations').insertOne(fitness_data);
     _res.json("center-info reached");
 });
 

@@ -21,9 +21,12 @@ export class LoginComponent implements OnInit{
     const provider = new firebase.auth.GoogleAuthProvider();
     const result = await this.afAuth.signInWithPopup(provider)
     let user = result.user?.displayName;
+    console.log(result);
     if(user){
+
       this.router.navigate(['dashboard']);
       console.log("User logged in", result.user?.displayName)
+      console.log("user id ", result.user?.uid)
       this.backendService.callExpress2(user).subscribe(
         (response) => {
           console.log('Response from Express:', response);
