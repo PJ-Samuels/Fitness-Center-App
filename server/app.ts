@@ -31,12 +31,30 @@ app.post('/center-info', (_req, _res) => {
     db.collection('locations').insertOne(fitness_data);
     _res.json("center-info reached");
 });
+app.get('/locations', (_req, _res) => {
+    const locations = db.collection('locations');
+    locations.find().toArray().then((result) => {
+        _res.json(result);
+    });
+})
 
 app.post('/login', (_req, _res) => {
-    let user = _req.body.user;
+    let user = _req.body.user.name;
+    let email = _req.body.user.email;
+    let uid = _req.body.user.id;
     const users = db.collection('users');
-    users.insertOne({users: user});
-    _res.json(user+" recieved");
+    users.findOne({ uid: uid }).then((result) => {
+        if (result) {
+            console.log("user already exists");
+            return;
+        }
+        else {
+            users.insertOne({name: user, email: email, uid: uid});
+        }
+    });
+
+
+    _res.json(users+" recieved");
 })
 app.post('/signup', (_req, _res) => {
     console.log("signup reached");

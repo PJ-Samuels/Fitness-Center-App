@@ -23,4 +23,7 @@ export class BackendService {
     const requestData = { user: data }
     return this.http.post(`${this.baseUrl}/login`, requestData);
   }
+  getLocations(): Observable<any> {
+    return this.http.get(`${this.baseUrl}/locations`);
+  }
 }

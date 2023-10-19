@@ -23,15 +23,21 @@ export class LoginComponent implements OnInit{
     let user = result.user?.displayName;
     console.log(result);
     if(user){
-
-      this.router.navigate(['dashboard']);
       console.log("User logged in", result.user?.displayName)
       console.log("user id ", result.user?.uid)
-      this.backendService.callExpress2(user).subscribe(
+      const user_data = {
+        name: result.user?.displayName,
+        email: result.user?.email,
+        id: result.user?.uid,
+      }
+      this.backendService.callExpress2(user_data).subscribe(
         (response) => {
           console.log('Response from Express:', response);
         }
       );
+      this.router.navigate(['dashboard']);
+      sessionStorage.setItem("user_data", JSON.stringify(user_data));
+      
     }
   }
 

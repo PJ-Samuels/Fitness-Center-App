@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { BackendService } from '../../services/backend.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -6,5 +7,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent {
+  constructor(
+    private backendService: BackendService,
+  ) {}
 
+  ngOnInit(): void {
+    const user_data = sessionStorage.getItem("user_data");
+    sessionStorage.setItem("user_data", user_data || "");
+
+    this.backendService.getLocations().subscribe(
+      (response)=>{
+        console.log("locations", response)
+      }
+    );
+  }
 }
