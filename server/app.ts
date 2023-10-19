@@ -21,17 +21,20 @@ app.get('/', (_req, _res) => {
 });
 
 app.post('/center-info', (_req, _res) => {
-    // console.log("center-info reached");
     console.log(_req.body.location.name)
-   const fitness_data = {
+    const fitness_data = {
         _id: new ObjectId(),
         name: _req.body.location.name,
+        address: _req.body.location.address,
+        phone: _req.body.location.phone,
+        summary: _req.body.location.summary,
     }
 
     db.collection('locations').insertOne(fitness_data);
     _res.json("center-info reached");
 });
 app.get('/locations', (_req, _res) => {
+    console.log(_req.body)
     const locations = db.collection('locations');
     locations.find().toArray().then((result) => {
         _res.json(result);
