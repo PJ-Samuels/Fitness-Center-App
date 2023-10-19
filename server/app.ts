@@ -19,22 +19,36 @@ client.connect().then(() => {
 app.get('/', (_req, _res) => {
     _res.json("TypeScript With Express");
 });
+app.post("/center", (_req, _res) => {
+    db.collection("locations").findOne({uid: _req.body.uid}).then((result) => {
+        _res.json(result);
+    });
+});
 
 app.post('/center-info', (_req, _res) => {
-    console.log(_req.body.location.name)
+    // console.log(_req.body.location.name)
+    const filter = { uid: _req.body.location.uid };
+    const options = { upsert: true };
     const fitness_data = {
-        _id: new ObjectId(),
         name: _req.body.location.name,
         address: _req.body.location.address,
         phone: _req.body.location.phone,
         summary: _req.body.location.summary,
     }
 
-    db.collection('locations').insertOne(fitness_data);
-    _res.json("center-info reached");
+    const update = { $set: fitness_data };
+    db.collection('locations').updateOne(filter, update, options)
+    .then((result) => {
+      if (result.modifiedCount === 1) {
+        _res.json("Document updated");
+      } else {
+        _res.json("New document created");
+      }
+    })
 });
+
 app.get('/locations', (_req, _res) => {
-    console.log(_req.body)
+    // console.log(_req.body)
     const locations = db.collection('locations');
     locations.find().toArray().then((result) => {
         _res.json(result);

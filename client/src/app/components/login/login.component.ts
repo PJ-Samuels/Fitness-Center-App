@@ -30,14 +30,14 @@ export class LoginComponent implements OnInit{
         email: result.user?.email,
         id: result.user?.uid,
       }
-      this.backendService.callExpress2(user_data).subscribe(
+      this.backendService.userLogin(user_data).subscribe(
         (response) => {
           console.log('Response from Express:', response);
         }
       );
       this.router.navigate(['dashboard']);
       sessionStorage.setItem("user_data", JSON.stringify(user_data));
-      
+
     }
   }
 

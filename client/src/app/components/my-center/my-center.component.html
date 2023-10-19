@@ -45,6 +45,10 @@
           required
         />
       </div>
+      <div class = "form-group">
+        <label for="Photo">Photo</label>
+          <input id = "photo" name = "photo" type="file" (change)="onFileSelected($event)">
+      </div>
       <!-- <div class="form-group">
         <label for="lastName">Rates</label>
         <input

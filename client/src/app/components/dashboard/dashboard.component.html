@@ -1,15 +1,11 @@
 <app-user-nav></app-user-nav>
-<p>dashboard works!</p>
 <div><h1>
     Fitness Centers Near you
 </h1></div>
-
-<div> fitness center example<br/>
-    <a>Name: Example center</a><br/>
-    <a>Address: 1234 Example St</a><br/>
-    <a>Phone: 123-456-7890</a><br/>
-    <a>Active memebers: 100</a><br/>
-</div>
 <div *ngFor = "let location of locations">
-    {{location.name}}
+    <h2>{{location.name}}</h2>
+   <p>{{location.address}}</p>
+   <p>{{location.phone}}</p>
+   <p>{{location.summary}}</p>
+   <p>Active Members: 100</p>
 </div>

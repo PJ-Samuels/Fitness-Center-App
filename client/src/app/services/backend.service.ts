@@ -14,16 +14,20 @@ export class BackendService {
   callExpress(): Observable<any> {
     return this.http.get(`${this.baseUrl}/`);
   }
-  callExpressTest(data: any): Observable<any> {
-    console.log("data",data);
-    return this.http.post(`${this.baseUrl}/center-info`, {location:data});
-  }
-  callExpress2(data: any): Observable<any> {
+  userLogin(data: any): Observable<any> {
     console.log("data",data);
     const requestData = { user: data }
     return this.http.post(`${this.baseUrl}/login`, requestData);
   }
+  getUserCenterData(uid: any): Observable<any> {
+    return this.http.post(`${this.baseUrl}/center`,{uid:uid});
+  }
   getLocations(): Observable<any> {
     return this.http.get(`${this.baseUrl}/locations`);
   }
+  centerInfoUpdate(data: any): Observable<any> {
+    console.log("data",data);
+    return this.http.post(`${this.baseUrl}/center-info`, {location:data});
+  }
+
 }
