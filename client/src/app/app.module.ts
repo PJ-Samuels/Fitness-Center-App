@@ -19,6 +19,12 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { UserNavComponent } from './components/user-nav/user-nav.component';
 import { MyCenterComponent } from './components/my-center/my-center.component';
 import { SearchComponent } from './components/search/search.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatCardModule} from '@angular/material/card';
+import {MatMenuModule} from '@angular/material/menu'
+
 
 
 // import { provideDatabase,getDatabase } from '@angular/fire/database';
@@ -39,6 +45,7 @@ import { SearchComponent } from './components/search/search.component';
     UserNavComponent,
     MyCenterComponent,
     SearchComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -48,6 +55,11 @@ import { SearchComponent } from './components/search/search.component';
     ReactiveFormsModule,
     AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebase),
+    MatToolbarModule,
+    BrowserAnimationsModule,
+    MatCardModule,
+    MatMenuModule,
+    
     // provideDatabase(() => getDatabase()),
     // provideFirestore(() => getFirestore()),
     // provideFunctions(() => getFunctions()),
