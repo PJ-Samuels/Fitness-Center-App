@@ -1,13 +1,12 @@
 <mat-toolbar>
     <span>Dashboard</span><br/>
-    <button mat-button [matMenuTriggerFor]="menu">Menu</button>
-    <mat-menu #menu="matMenu">
-      <!-- <button mat-menu-item>Item 1</button>
-      <button mat-menu-item>Item 2</button> -->
-    </mat-menu>
     <button mat-button (click)="handleHomeClick()">Home</button>
     <button mat-button (click)="handleCenterClick()">My Center</button>
     <button mat-button (click)="handleSearchClick()">Search</button>
-    <button mat-button>Discover</button>
+    <button mat-button [matMenuTriggerFor]="discover">Discover</button>
+    <mat-menu #discover="matMenu">
+      <button mat-menu-item>Popular</button>
+      <button mat-menu-item>Other</button>
+    </mat-menu>
 </mat-toolbar>
 
