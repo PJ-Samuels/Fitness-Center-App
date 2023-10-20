@@ -23,7 +23,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatCardModule} from '@angular/material/card';
-import {MatMenuModule} from '@angular/material/menu'
+import {MatMenuModule} from '@angular/material/menu';
+import {MatButtonModule} from '@angular/material/button';
 
 
 
@@ -59,6 +60,7 @@ import {MatMenuModule} from '@angular/material/menu'
     BrowserAnimationsModule,
     MatCardModule,
     MatMenuModule,
+    MatButtonModule,
     
     // provideDatabase(() => getDatabase()),
     // provideFirestore(() => getFirestore()),
