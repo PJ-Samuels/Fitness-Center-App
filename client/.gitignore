@@ -12,9 +12,7 @@ npm-debug.log
 yarn-error.log
 
 #Firebase
-.firebaseserc
-./enivorments/environment.ts
-./enivorments/environment.development.ts
+/environments/.env
 
 # IDEs and editors
 .idea/
